@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAJAD - للخدمات الإلكترونية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #07090e;
+            --card-bg: rgba(18, 24, 38, 0.85);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-blue: #2563eb;
+            --accent-cyan: #06b6d4;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.2) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .logo-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 12px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(6, 182, 212, 0.3));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff, #a5f3fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 5px;
+            padding: 4px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            padding: 24px 18px;
+            text-align: right;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .title-label {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .title-label::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .service-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .service-btn .icon {
+            font-size: 22px;
+        }
+
+        .service-btn .txt {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .service-btn.active {
+            border-color: var(--accent-cyan);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(6, 182, 212, 0.2));
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+        }
+
+        .service-btn.active .txt {
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: rgba(7, 9, 14, 0.7);
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-send {
+            flex: 1;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 14px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .btn-telegram {
+            background: #0088cc;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+        }
+
+        .btn-send:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo-box">⚡</div>
+            <h1>SAJAD</h1>
+            <div class="badge">للخدمات الإلكترونية والحلول البرمجية</div>
+        </div>
+
+        <div class="card">
+            <div class="title-label">اختر نوع الخدمة المطلوب:</div>
+
+            <div class="services-grid">
+                <div class="service-btn active" onclick="setService(this, 'تصميم مينيو مطاعم وكافيهات')">
+                    <span class="icon">🍔</span>
+                    <span class="txt">مينيو مطاعم وكافيهات</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'خدمات برمجية وإنشاء روابط')">
+                    <span class="icon">🌐</span>
+                    <span class="txt">خدمات برمجية وروابط</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'خدمات وحلول سيبرانية')">
+                    <span class="icon">🛡️</span>
+                    <span class="txt">خدمات سيبرانية</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'تطوير بوتات تليجرام')">
+                    <span class="icon">🤖</span>
+                    <span class="txt">بوتات تليجرام</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'تطبيقات ويب وموبايل')">
+                    <span class="icon">📱</span>
+                    <span class="txt">تطبيقات ويب وموبايل</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'إدارة وأتمتة بيانات إلكترونية')">
+                    <span class="icon">📊</span>
+                    <span class="txt">أتمتة وجداول بيانات</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'تصميم هويات وتصاميم رقمية')">
+                    <span class="icon">🎨</span>
+                    <span class="txt">تصاميم وهويات رقمية</span>
+                </div>
+                <div class="service-btn" onclick="setService(this, 'استشارات وحلول تقنية')">
+                    <span class="icon">⚡</span>
+                    <span class="txt">استشارات وحلول تقنية</span>
+                </div>
+            </div>
+
+            <div class="title-label">معلومات طلبك:</div>
+
+            <div class="form-group">
+                <label>الاسم الكامل:</label>
+                <input type="text" id="fullname" class="form-control" placeholder="أدخل اسمك..." required>
+            </div>
+
+            <div class="form-group">
+                <label>رقم الهاتف / الواتساب:</label>
+                <input type="tel" id="phone" class="form-control" placeholder="07XXXXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label>شرح الفكرة والملاحظات:</label>
+                <textarea id="details" class="form-control" rows="3" placeholder="اكتب تفاصيل طلبك..." required></textarea>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" onclick="sendToTelegram()" class="btn-send btn-telegram">✈️ تليجرام</button>
+                <button type="button" onclick="sendToWhatsApp()" class="btn-send btn-whatsapp">💬 واتساب</button>
+            </div>
+        </div>
+
+        <div class="footer">جميع الحقوق محفوظة © SAJAD 2026</div>
+    </div>
+
+    <script>
+        let selectedService = 'تصميم مينيو مطاعم وكافيهات';
+
+        function setService(el, serviceName) {
+            document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('active'));
+            el.classList.add('active');
+            selectedService = serviceName;
+        }
+
+        function createText() {
+            const fullname = document.getElementById('fullname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const details = document.getElementById('details').value.trim();
+
+            if (!fullname || !phone || !details) {
+                alert('يرجى ملا جميع الحقول المطلوبة قبل الإرسال.');
+                return null;
+            }
+
+            return `السلام عليكم، أرغب بطلب خدمة جديدة:%0A%0A📌 الخدمة: ${encodeURIComponent(selectedService)}%0A👤 الاسم: ${encodeURIComponent(fullname)}%0A📞 الهاتف: ${encodeURIComponent(phone)}%0A📝 التفاصيل: ${encodeURIComponent(details)}`;
+        }
+
+        function sendToTelegram() {
+            const text = createText();
+            if (text) {
+                window.open(`https://t.me/FFFP3?text=${text}`, '_blank');
+            }
+        }
+
+        function sendToWhatsApp() {
+            const text = createText();
+            if (text) {
+                window.open(`https://wa.me/9647808868784?text=${text}`, '_blank');
+            }
+        }
+    </script>
+
+</body>
+</html>
